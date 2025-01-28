@@ -14,6 +14,7 @@ import {
   useDotButton,
 } from "../agnostic/carousel";
 import { type UseEmblaCarouselType } from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 
 const Header = () => {
   const [apis, setApis] = useState<UseEmblaCarouselType[1] | undefined>();
@@ -21,7 +22,13 @@ const Header = () => {
 
   return (
     <section id="header" className="w-full h-[100vh] bg-[#0A1045]">
-      <C.Carousel css={defaultCarousel} setApi={(api) => setApis(api)}>
+      <C.Carousel
+        css={defaultCarousel}
+        setApi={(api) => setApis(api)}
+        plugins={[
+          Autoplay({ playOnInit: true, delay: 4000, stopOnInteraction: true }),
+        ]}
+      >
         <C.CarouselContent css={carouselCont}>
           {content.map((item, index) => (
             <C.CarouselItem key={index} css={carItem}>

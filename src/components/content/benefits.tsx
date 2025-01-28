@@ -1,9 +1,13 @@
 import { useState } from "react";
 import { IcChevronLeft } from "../../assets/iconify";
 import { content, listContent } from "../../constant/constatLIst";
-import { Carousel as C, useDotButton } from "../agnostic/carousel";
+import {
+  Carousel as C,
+  DefaultPagination,
+  useDotButton,
+} from "../agnostic/carousel";
 import { type UseEmblaCarouselType } from "embla-carousel-react";
-import { cn } from "../../utils/utils";
+import Autoplay from "embla-carousel-autoplay";
 
 const Benefits = () => {
   const [cRef, setCRef] = useState<HTMLDivElement | null>(null);
@@ -56,6 +60,13 @@ const Benefits = () => {
           setApi={(val) => setApis(val)}
           ref={(c) => setCRef(c)}
           css={{ position: "relative", width: "100%", height: "100%" }}
+          plugins={[
+            Autoplay({
+              playOnInit: true,
+              delay: 4000,
+              stopOnInteraction: true,
+            }),
+          ]}
         >
           <C.CarouselContent
             css={{
@@ -79,16 +90,9 @@ const Benefits = () => {
                   key={index}
                   onClick={() => onDotButtonClick(index)}
                 >
-                  <div
-                    className={cn(
-                      "w-[0.75rem] h-[0.75rem] bg-[rgba(255,255,255,.5)] border-[1px] border-white rounded-full hover:w-[1rem] hover:h-[1rem] transition-all cursor-pointer",
-                      {
-                        ["w-[1rem] h-[1rem] bg-white"]: selectedIndex === index,
-                      },
-                      {
-                        ["cursor-auto"]: selectedIndex === index,
-                      }
-                    )}
+                  <DefaultPagination
+                    selectedIndex={selectedIndex}
+                    index={index}
                   />
                 </C.CustomPagination>
               );
