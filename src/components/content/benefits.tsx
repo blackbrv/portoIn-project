@@ -1,10 +1,14 @@
 import { useState } from "react";
 import { IcChevronLeft } from "../../assets/iconify";
 import { content, listContent } from "../../constant/constatLIst";
-import { Carousel as C } from "../agnostic/carousel";
+import { Carousel as C, useDotButton } from "../agnostic/carousel";
+import { type UseEmblaCarouselType } from "embla-carousel-react";
+import { cn } from "../../utils/utils";
 
 const Benefits = () => {
   const [cRef, setCRef] = useState<HTMLDivElement | null>(null);
+  const [apis, setApis] = useState<UseEmblaCarouselType[1] | undefined>();
+  const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(apis);
   const carHeight = cRef ? cRef.getBoundingClientRect() : null;
 
   return (
@@ -49,6 +53,7 @@ const Benefits = () => {
       </div>
       <div className="w-full h-full p-[52px] flex flex-col items-center justify-center">
         <C.Carousel
+          setApi={(val) => setApis(val)}
           ref={(c) => setCRef(c)}
           css={{ position: "relative", width: "100%", height: "100%" }}
         >
@@ -67,6 +72,28 @@ const Benefits = () => {
               </C.CarouselItem>
             ))}
           </C.CarouselContent>
+          <C.PaginationHolder>
+            {scrollSnaps.map((_, index) => {
+              return (
+                <C.CustomPagination
+                  key={index}
+                  onClick={() => onDotButtonClick(index)}
+                >
+                  <div
+                    className={cn(
+                      "w-[0.75rem] h-[0.75rem] bg-[rgba(255,255,255,.5)] border-[1px] border-white rounded-full hover:w-[1rem] hover:h-[1rem] transition-all cursor-pointer",
+                      {
+                        ["w-[1rem] h-[1rem] bg-white"]: selectedIndex === index,
+                      },
+                      {
+                        ["cursor-auto"]: selectedIndex === index,
+                      }
+                    )}
+                  />
+                </C.CustomPagination>
+              );
+            })}
+          </C.PaginationHolder>
         </C.Carousel>
       </div>
     </section>

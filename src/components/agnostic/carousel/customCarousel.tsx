@@ -286,11 +286,54 @@ const CarouselNext = React.forwardRef<
   );
 });
 
+const PaginationHolder = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement> & { css?: React.CSSProperties }
+>(({ children, css, ...props }, ref) => {
+  const styles: React.CSSProperties = {
+    position: "absolute",
+    bottom: "0.25rem",
+    left: "0.02rem",
+    marginLeft: "auto",
+    marginRight: "auto",
+    display: "flex",
+    height: "auto",
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: "0.5rem",
+    borderRadius: "0.5rem",
+    padding: "5px",
+  };
+
+  const style = { ...styles, ...css };
+
+  return (
+    <StyledDiv ref={ref} style={style} {...props}>
+      {children}
+    </StyledDiv>
+  );
+});
+
+//Components
+const CustomPagination = React.forwardRef<
+  HTMLButtonElement,
+  React.ComponentProps<typeof Button> & { css?: React.CSSProperties }
+>(({ children, css, ...props }, ref) => {
+  return (
+    <Button ref={ref} style={css} {...props}>
+      {children}
+    </Button>
+  );
+});
+
 Carousel.displayName = "Carousel";
 CarouselContent.displayName = "CarouselContent";
 CarouselItem.displayName = "CarouselItem";
 CarouselPrevious.displayName = "CarouselPrevious";
 CarouselNext.displayName = "CarouselNext";
+PaginationHolder.displayName = "CarouselPaginationHolder";
+CustomPagination.displayName = "CarouselPagination";
 
 export {
   Carousel,
@@ -298,4 +341,6 @@ export {
   CarouselItem,
   CarouselPrevious,
   CarouselNext,
+  PaginationHolder,
+  CustomPagination,
 };

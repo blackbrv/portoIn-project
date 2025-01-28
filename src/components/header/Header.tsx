@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { IcChevronLeft } from "../../assets/iconify";
 import {
   carItem,
@@ -7,12 +8,20 @@ import {
   prevBtn,
 } from "../../constant/carouselCss";
 import { content } from "../../constant/constatLIst";
-import { Carousel as C } from "../agnostic/carousel";
+import {
+  Carousel as C,
+  DefaultPagination,
+  useDotButton,
+} from "../agnostic/carousel";
+import { type UseEmblaCarouselType } from "embla-carousel-react";
 
 const Header = () => {
+  const [apis, setApis] = useState<UseEmblaCarouselType[1] | undefined>();
+  const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(apis);
+
   return (
     <section id="header" className="w-full h-[100vh] bg-[#0A1045]">
-      <C.Carousel css={defaultCarousel}>
+      <C.Carousel css={defaultCarousel} setApi={(api) => setApis(api)}>
         <C.CarouselContent css={carouselCont}>
           {content.map((item, index) => (
             <C.CarouselItem key={index} css={carItem}>
@@ -34,6 +43,16 @@ const Header = () => {
         <C.CarouselNext css={nextBtn}>
           <IcChevronLeft className="w-[2rem] h-[2rem] rotate-180 text-white" />
         </C.CarouselNext>
+        <C.PaginationHolder>
+          {scrollSnaps.map((_, index) => (
+            <C.CustomPagination
+              key={index}
+              onClick={() => onDotButtonClick(index)}
+            >
+              <DefaultPagination selectedIndex={selectedIndex} index={index} />
+            </C.CustomPagination>
+          ))}
+        </C.PaginationHolder>
       </C.Carousel>
     </section>
   );
