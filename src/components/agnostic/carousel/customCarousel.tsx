@@ -224,6 +224,7 @@ const CarouselPrevious = React.forwardRef<
     left: "-3rem",
     top: "50%",
     transform: "translateY(-50%)",
+    cursor: canScrollPrev ? "pointer" : "",
   };
   const v = {
     top: "-3rem",
@@ -259,6 +260,7 @@ const CarouselNext = React.forwardRef<
     right: "-3rem",
     top: "50%",
     transform: "translateY(-50%)",
+    cursor: canScrollNext ? "pointer" : "",
   };
 
   const v = {
