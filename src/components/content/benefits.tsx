@@ -74,11 +74,12 @@ const Benefits = () => {
             }}
           >
             {content.map((item, index) => (
-              <C.CarouselItem css={{ height: "100%", borderRadius: "8px" }}>
+              <C.CarouselItem css={{ height: "100%", borderRadius: "2.5rem" }}>
                 <img
                   key={index}
                   src={item.src}
-                  className="h-full w-full object-cover rounded-lg"
+                  className="h-full w-full object-cover"
+                  style={{ borderRadius: "inherit" }}
                 />
               </C.CarouselItem>
             ))}

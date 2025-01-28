@@ -12,7 +12,7 @@ const CheckTemplate = () => {
   const [carouselRef, setCarouselRef] = useState<HTMLDivElement | null>(null);
   const [apis, setApis] = useState<UseEmblaCarouselType[1] | undefined>();
   const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(apis);
-  const carouselSize = carouselRef ? carouselRef.getBoundingClientRect() : null;
+  console.log(carouselRef);
 
   return (
     <section
@@ -33,6 +33,7 @@ const CheckTemplate = () => {
               style={{
                 display: "flex",
                 marginLeft: "-1rem",
+                marginRight: "1rem",
                 gap: "5rem",
                 paddingLeft: "2rem",
                 paddingRight: "2rem",
@@ -43,13 +44,11 @@ const CheckTemplate = () => {
                   <C.CarouselItem
                     key={index}
                     style={{
-                      width: carouselSize ? carouselSize.width / 3 : "600px",
-                      height: carouselSize?.height ?? "100%",
+                      height: "600px",
                       borderRadius: "1rem",
                       minWidth: 0,
                       flexShrink: 0,
                       flexGrow: 0,
-                      flexBasis: "calc(100%/3)",
                     }}
                   >
                     <img
