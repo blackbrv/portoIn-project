@@ -1,11 +1,13 @@
+import Benefits from "../components/content/benefits";
 import Header from "../components/header/Header";
 import Navbar from "../components/navbar/Navbar";
 
 const LandingPage = () => {
   return (
     <>
-      <Navbar className="absolute bg-transparent z-10" />
+      <Navbar />
       <Header />
+      <Benefits />
     </>
   );
 };

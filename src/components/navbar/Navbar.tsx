@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 import { NavMenu } from "../../constant/navMenu";
 import { cn } from "../../utils/utils";
@@ -27,17 +28,28 @@ const Logo = () => {
 };
 
 const Navbar = ({ className }: { className?: string }) => {
+  const [scroll, setScroll] = useState<boolean>(false);
+
+  const scrollFunction = () => {
+    if (window.scrollY >= 50) {
+      setScroll(true);
+    } else setScroll(false);
+  };
+
+  window.addEventListener("scroll", scrollFunction);
+
   return (
     <Root
+      id="navbar"
       className={cn(
-        "bg-[#0A1045] px-5 py-3 flex flex-row items-center justify-between",
+        "px-5 py-3 flex flex-row items-center justify-between transition-all fixed bg-[rgba(0,0,0,0)] z-10",
+        { [`bg-[#0A1045] px-[32px] py-[30px]`]: scroll },
         className
       )}
     >
       <Logo />
       <MenuContainer className="w-max h-max text-lg text-white flex flex-row gap-5 items-center justify-center">
         {NavMenu.map((item, index) => {
-          console.log(index);
           return (
             <>
               {index !== NavMenu.length - 1 ? (
@@ -52,7 +64,7 @@ const Navbar = ({ className }: { className?: string }) => {
                 <a
                   href={item.src}
                   key={index}
-                  className="w-max h-max px-2 py-1 flex items-center justify-center bg-white rounded-full text-[#0A1045] hover:cursor-pointer hover:bg-[#FDE12D] transition-all"
+                  className="w-max h-max px-2 py-1 flex items-center justify-center bg-white rounded-full text-[#0A1045] hover:cursor-pointer hover:bg-[#FDE12D] transition-all hover:scale-105"
                 >
                   {item.value}
                 </a>
