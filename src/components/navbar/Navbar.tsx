@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { NavMenu } from "../../constant/navMenu";
+import { cn } from "../../utils/utils";
 
 const Root = styled.div({
   width: "100%",
@@ -25,9 +26,14 @@ const Logo = () => {
   );
 };
 
-const Navbar = () => {
+const Navbar = ({ className }: { className?: string }) => {
   return (
-    <Root className="bg-[#0A1045] px-5 py-3 flex flex-row items-center justify-between">
+    <Root
+      className={cn(
+        "bg-[#0A1045] px-5 py-3 flex flex-row items-center justify-between",
+        className
+      )}
+    >
       <Logo />
       <MenuContainer className="w-max h-max text-lg text-white flex flex-row gap-5 items-center justify-center">
         {NavMenu.map((item, index) => {

@@ -4,7 +4,7 @@ import Navbar from "../components/navbar/Navbar";
 const LandingPage = () => {
   return (
     <>
-      <Navbar />
+      <Navbar className="absolute bg-transparent z-10" />
       <Header />
     </>
   );

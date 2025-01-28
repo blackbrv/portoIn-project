@@ -26,8 +26,8 @@ type CarouselContextProps = {
 } & CarouselProps;
 
 const CarouselContext = React.createContext<CarouselContextProps | null>(null);
-const StyledDiv = styled.div({});
 
+const StyledDiv = styled.div({});
 const Button = styled.button({});
 const SrOnlySpan = styled.span({
   position: "absolute",
@@ -53,10 +53,19 @@ function useCarousel() {
 
 const Carousel = React.forwardRef<
   HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement> & CarouselProps
+  React.HTMLAttributes<HTMLDivElement> &
+    CarouselProps & { css?: React.CSSProperties }
 >(
   (
-    { children, orientation = "horizontal", opts, setApi, plugins, ...rest },
+    {
+      children,
+      orientation = "horizontal",
+      opts,
+      setApi,
+      css,
+      plugins,
+      ...rest
+    },
     forwardRef
   ) => {
     const [carouselRef, api] = useEmblaCarousel(
@@ -138,7 +147,7 @@ const Carousel = React.forwardRef<
         <StyledDiv
           ref={forwardRef}
           onKeyDownCapture={handleKeyDown}
-          style={{ position: "relative", ...rest.css }}
+          style={{ position: "relative", ...css }}
           role="region"
           aria-roledescription="carousel"
           {...rest}
