@@ -64,5 +64,9 @@ export const socialLinks = [
     ico: Instagram,
     href: "https://www.instagram.com/thesantuyboy/",
   },
-  { title: "Mail", ico: Mail02, href: "" },
+  {
+    title: "Mail",
+    ico: Mail02,
+    href: "mailto:luthfiprtm@gmail.com?subject=Let%27s%20Work%20Together&body=Lets%20work%20together%20on%20my%20projects.%20I%27ll%20send%20the%20project%20design",
+  },
 ];

@@ -17,7 +17,13 @@ const Footer = () => {
         <div className="w-full h-max flex gap-3">
           {socialLinks.map((item, index) => {
             return (
-              <a href={item.href} key={index} className="cursor-pointer">
+              <a
+                href={item.href}
+                key={index}
+                target="_blank"
+                rel="noreferrer"
+                className="cursor-pointer"
+              >
                 <item.ico
                   className={cn("w-[3rem] h-[3rem]", {
                     ["fill-[#dadefb]"]: item.title !== "Mail",
