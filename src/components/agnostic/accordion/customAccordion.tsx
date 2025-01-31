@@ -6,15 +6,18 @@ const StyledRoot = styled(Accordion.Root)({});
 
 const StyledItem = styled(Accordion.Item)({
   width: "100%",
-  height: "max-content",
   padding: "8px 12px",
+  overflow: "hidden",
   backgroundColor: "inherit",
+  "&:[focus-within]": {
+    position: "relative",
+    zIndex: 1,
+  },
 });
 
 const StyledHeader = styled(Accordion.Header)({
   all: "unset",
   width: "max-content",
-  height: "max-content",
   paddingLeft: "8px",
   paddingRight: "8px",
   paddingTop: "12px",
@@ -24,7 +27,6 @@ const StyledHeader = styled(Accordion.Header)({
 
 const StyledTrigger = styled(Accordion.Trigger)({
   width: "100%",
-  height: "max-content",
   display: "flex",
   flexDirection: "row",
   justifyContent: "space-evenly",
@@ -32,12 +34,12 @@ const StyledTrigger = styled(Accordion.Trigger)({
 });
 
 const slideDown = keyframes`
-    from {
-      height: 0;
-    }
-    to {
-      height: var(--radix-accordion-content-height);
-    }`;
+  from {
+		height: 0;
+	}
+	to {
+		height: var(--radix-accordion-content-height);
+	}`;
 
 const slideUp = keyframes`
     from {
@@ -48,18 +50,14 @@ const slideUp = keyframes`
     }`;
 
 const StyledContent = styled(Accordion.Content)`
-  width: 100%;
-  height: max-content;
   padding: 8px;
   background-color: inherit;
   overflow: hidden;
-
   &[data-state="open"] {
-    animation: ${slideDown} 300ms cubic-bezier(0.87, 0, 0.13, 1);
+    animation: ${slideDown} 300ms ease-out;
   }
-
   &[data-state="closed"] {
-    animation: ${slideUp} 300ms cubic-bezier(0.87, 0, 0.13, 1);
+    animation: ${slideUp} 300ms ease-in;
   }
 `;
 
@@ -126,7 +124,7 @@ const Trigger = React.forwardRef<HTMLButtonElement, TriggerProps>(
 const Content = React.forwardRef<HTMLDivElement, ContentProps>(
   ({ children, css, ...rest }, forwardRef) => (
     <StyledContent ref={forwardRef} style={css} {...rest}>
-      {children}
+      <div className="px-5 py-[15px]">{children}</div>
     </StyledContent>
   )
 );
