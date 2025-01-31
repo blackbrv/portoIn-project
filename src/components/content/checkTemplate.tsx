@@ -7,6 +7,7 @@ import {
   DefaultPagination,
   useDotButton,
 } from "../agnostic/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 const CheckTemplate = () => {
   const [carouselRef, setCarouselRef] = useState<HTMLDivElement | null>(null);
@@ -28,6 +29,13 @@ const CheckTemplate = () => {
             css={{ width: "100%", height: "max-content" }}
             ref={(ref) => setCarouselRef(ref)}
             setApi={(api) => setApis(api)}
+            plugins={[
+              Autoplay({
+                playOnInit: true,
+                delay: 4000,
+                stopOnInteraction: true,
+              }),
+            ]}
           >
             <C.CarouselContent
               style={{
