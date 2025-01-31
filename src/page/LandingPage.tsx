@@ -1,5 +1,6 @@
 import Benefits from "../components/content/benefits";
 import CheckTemplate from "../components/content/checkTemplate";
+import FrequentlyAskedQuestion from "../components/content/frequentlyAskedQuestion";
 import Header from "../components/header/Header";
 import Navbar from "../components/navbar/Navbar";
 
@@ -10,6 +11,7 @@ const LandingPage = () => {
       <Header />
       <Benefits />
       <CheckTemplate />
+      <FrequentlyAskedQuestion />
     </>
   );
 };

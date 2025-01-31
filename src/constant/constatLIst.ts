@@ -30,3 +30,27 @@ export const content = [
     src: "https://r4.wallpaperflare.com/wallpaper/587/793/76/alexandre-cabanel-painting-angel-fallen-angel-hd-wallpaper-03ea33eae8c5cc1dc8422e63b1883241.jpg",
   },
 ];
+
+export const Faqu = [
+  {
+    title: "What is PortoIn, and how does it work?",
+    content:
+      "PortoIn is a web-based platform that allows users to easily create professional online portfolios. With pre-designed templates and a user-friendly interface, PortoIn makes it simple to showcase your skills, experience, and achievements to potential employers.",
+  },
+  {
+    title: "Who can benefit the most from using PortoIn?",
+    content:
+      "PortoIn is ideal for anyone looking to create a professional portfolio. Whether you’re a designer, developer, marketer, photographer, writer, or even an educator, PortoIn empowers you to present your work in a way that highlights your competence and unique skills.",
+  },
+  {
+    title:
+      "Do I need any design or technical skills to create a portfolio on PortoIn?",
+    content:
+      "No, you don’t need any technical or design skills to use PortoIn. Simply choose from our professionally designed templates and customize them to suit your preferences. It’s as easy as drag-and-drop editing!",
+  },
+  {
+    title: "How secure is my data and portfolio on PortoIn?",
+    content:
+      "We take your data security seriously. PortoIn does not collect or store sensitive personal information beyond what is required to create your portfolio. Your data is encrypted, and your portfolio is securely hosted to ensure it remains private and protected.",
+  },
+];

@@ -1,6 +1,6 @@
 import * as Accordion from "@radix-ui/react-accordion";
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 const StyledRoot = styled(Accordion.Root)({});
 
@@ -12,9 +12,13 @@ const StyledItem = styled(Accordion.Item)({
 });
 
 const StyledHeader = styled(Accordion.Header)({
-  width: "100%",
+  all: "unset",
+  width: "max-content",
   height: "max-content",
-  padding: "8px 12px",
+  paddingLeft: "8px",
+  paddingRight: "8px",
+  paddingTop: "12px",
+  paddingBottom: "12px",
   backgroundColor: "inherit",
 });
 
@@ -27,12 +31,37 @@ const StyledTrigger = styled(Accordion.Trigger)({
   backgroundColor: "inherit",
 });
 
-const StyledContent = styled(Accordion.Content)({
-  width: "100%",
-  height: "max-content",
-  padding: "8px",
-  backgroundColor: "inherit",
-});
+const slideDown = keyframes`
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }`;
+
+const slideUp = keyframes`
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }`;
+
+const StyledContent = styled(Accordion.Content)`
+  width: 100%;
+  height: max-content;
+  padding: 8px;
+  background-color: inherit;
+  overflow: hidden;
+
+  &[data-state="open"] {
+    animation: ${slideDown} 300ms cubic-bezier(0.87, 0, 0.13, 1);
+  }
+
+  &[data-state="closed"] {
+    animation: ${slideUp} 300ms cubic-bezier(0.87, 0, 0.13, 1);
+  }
+`;
 
 type RootProps = (
   | Accordion.AccordionSingleProps

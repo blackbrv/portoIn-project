@@ -17,7 +17,7 @@ const CheckTemplate = () => {
   return (
     <section
       id="benefits"
-      className="w-full h-max bg-[#0A1045] relative flex col-span-2 flex-row items-start justify-center py-[22px]"
+      className="w-full h-max bg-[#0A1045] relative flex items-start justify-center py-[22px]"
     >
       <div className="w-full h-full flex flex-col gap-3">
         <h1 className="text-white text-[3rem] text-center font-[Inter] font-bold">
