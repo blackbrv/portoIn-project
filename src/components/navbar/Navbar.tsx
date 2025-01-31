@@ -37,7 +37,7 @@ const Navbar = ({ className }: { className?: string }) => {
       )}
     >
       <Logo />
-      <MenuContainer className="w-max h-max text-lg text-white flex flex-row gap-5 items-center justify-center">
+      <MenuContainer className="w-max h-max text-lg text-[#dadefb] flex flex-row gap-5 items-center justify-center">
         {NavMenu.map((item, index) => {
           return (
             <>
@@ -53,7 +53,7 @@ const Navbar = ({ className }: { className?: string }) => {
                 <a
                   href={item.src}
                   key={index}
-                  className="w-max h-max px-2 py-1 flex items-center justify-center bg-white rounded-full text-[#0A1045] hover:cursor-pointer hover:bg-[#FDE12D] transition-all hover:scale-105"
+                  className="w-max h-max px-2 py-1 flex items-center justify-center bg-[#dadefb] rounded-full text-[#0A1045] hover:cursor-pointer hover:bg-[#FDE12D] transition-all hover:scale-105"
                 >
                   {item.value}
                 </a>
