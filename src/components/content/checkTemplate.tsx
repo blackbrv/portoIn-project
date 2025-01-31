@@ -21,7 +21,7 @@ const CheckTemplate = () => {
       className="w-full h-max bg-[#0A1045] relative flex items-start justify-center py-[22px]"
     >
       <div className="w-full h-full flex flex-col gap-3">
-        <h1 className="text-white text-[3rem] text-center font-[Inter] font-bold">
+        <h1 className="text-white text-[3rem] text-center font-[Nunito] font-bold">
           Checkout Our Template
         </h1>
         <div className="bg-[rgba(0,0,0,.3)] w-full h-full py-[32px]">
@@ -90,7 +90,7 @@ const CheckTemplate = () => {
             href="https://google.com"
             rel="noreferer"
             target="_blank"
-            className="w-max h-max bg-[#dadefb] rounded-lg p-3 text-xl font-bold text-[#0A1045] tracking-wide hover:scale-105 hover:bg-[#fde12d] hover:text-[#0A1045] transition-all hover:cursor-pointer"
+            className="w-max h-max bg-[#dadefb] rounded-lg p-3 text-xl font-bold text-[#0A1045] tracking-wide hover:scale-105 hover:bg-[#fde12d] hover:text-[#0A1045] transition-all hover:cursor-pointer font-[Nunito]"
           >
             Try it Free!
           </a>

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { IcChevronLeft } from "../../assets/iconify";
 import { content, listContent } from "../../constant/constatLIst";
 import {
   Carousel as C,
@@ -20,11 +19,9 @@ const Benefits = () => {
       id="benefits"
       className="w-full h-screen bg-[#dadefb] flex col-span-2 flex-row"
     >
-      <div className="w-full h-full flex flex-col items-start justify-start p-[32px] gap-5 text-[#0A1045]">
-        <h1 className="text-[3rem] font-bold font-[Inter]">
-          Why Portofolios Matter ?
-        </h1>
-        <p className="text-[1.5rem] font-medium font-[Inter] italic text-wrap">
+      <div className="w-full h-full flex flex-col items-start justify-start p-[32px] gap-5 text-[#0A1045] font-[Nunito]">
+        <h1 className="text-[3rem] font-bold">Why Portofolios Matter ?</h1>
+        <p className="text-[1.5rem] font-bold italic text-wrap">
           “85% of recruiters say a strong portfolio is key to understanding a
           candidate’s skills and potential.”
         </p>
@@ -35,10 +32,9 @@ const Benefits = () => {
                 className="w-full h-max py-5 flex flex-col text-[1.5rem] font-medium"
                 key={index}
               >
-                <div className="w-full h-max flex flex-row gap-2 items-center">
-                  <IcChevronLeft className="w-5 h-5 font-bold rotate-180" />
-                  <h1>{item.title}</h1>
-                </div>
+                <h1 className="text-[2rem] mb-[1rem] font-semibold">
+                  {item.title}
+                </h1>
                 <p>{item.parag}</p>
               </div>
             );

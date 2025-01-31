@@ -67,7 +67,7 @@ const FrequentlyAskedQuestion = () => {
           </C.PaginationHolder>
         </C.Carousel>
       </div>
-      <div className="w-full py-[50px] px-[32px] flex flex-col items-center font-[Inter] text-[#0A1045] gap-[5rem]">
+      <div className="w-full py-[50px] px-[32px] flex flex-col items-center font-[Nunito] text-[#0A1045] gap-[5rem]">
         <h1 className="text-[2.5rem] font-bold"> Frequently Asked Question </h1>
         <div className="w-full">
           <A.Root type="single" collapsible>

@@ -1,8 +1,13 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { NavMenu } from "../../constant/navMenu";
 import { cn } from "../../utils/utils";
 import Logo from "../Logo";
+
+type NavbarProps = {
+  className?: string;
+  exposeRef?: (ref: HTMLDivElement) => void;
+};
 
 const Root = styled.div({
   width: "100%",
@@ -12,12 +17,13 @@ const Root = styled.div({
 const MenuContainer = styled.div({
   width: "max-content",
   height: "max-content",
-  fontFamily: "Inter",
-  fontWeight: "600",
+  fontFamily: "Nunito",
+  fontWeight: "700",
 });
 
-const Navbar = ({ className }: { className?: string }) => {
+const Navbar = ({ className, exposeRef }: NavbarProps) => {
   const [scroll, setScroll] = useState<boolean>(false);
+  const rootRef = useRef<HTMLDivElement | null>(null);
 
   const scrollFunction = () => {
     if (window.scrollY >= 50) {
@@ -27,8 +33,14 @@ const Navbar = ({ className }: { className?: string }) => {
 
   window.addEventListener("scroll", scrollFunction);
 
+  useEffect(() => {
+    if (!exposeRef || !rootRef.current) return;
+    exposeRef(rootRef.current);
+  }, [exposeRef, rootRef]);
+
   return (
     <Root
+      ref={rootRef}
       id="navbar"
       className={cn(
         "px-[32px] py-[30px] flex flex-row items-center justify-between transition-all fixed bg-[rgba(0,0,0,0)] z-10",
