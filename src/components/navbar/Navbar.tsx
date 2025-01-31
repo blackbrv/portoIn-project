@@ -2,6 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { NavMenu } from "../../constant/navMenu";
 import { cn } from "../../utils/utils";
+import Logo from "../Logo";
 
 const Root = styled.div({
   width: "100%",
@@ -14,18 +15,6 @@ const MenuContainer = styled.div({
   fontFamily: "Inter",
   fontWeight: "600",
 });
-
-const Logo = () => {
-  return (
-    <a
-      className="w-max h-max p-2 text-white font-[Konkhmer_Sleokchher] flex flex-row text-2xl cursor-pointer transition-all hover:scale-105"
-      href="/"
-    >
-      <p>Porto</p>
-      <p className="text-[#FDE12D]">In</p>
-    </a>
-  );
-};
 
 const Navbar = ({ className }: { className?: string }) => {
   const [scroll, setScroll] = useState<boolean>(false);
@@ -42,8 +31,8 @@ const Navbar = ({ className }: { className?: string }) => {
     <Root
       id="navbar"
       className={cn(
-        "px-5 py-3 flex flex-row items-center justify-between transition-all fixed bg-[rgba(0,0,0,0)] z-10",
-        { [`bg-[#0A1045] px-[32px] py-[30px]`]: scroll },
+        "px-[32px] py-[30px] flex flex-row items-center justify-between transition-all fixed bg-[rgba(0,0,0,0)] z-10",
+        { [`bg-[#0A1045] px-5 py-3`]: scroll },
         className
       )}
     >

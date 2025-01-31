@@ -1,3 +1,5 @@
+import { Github, Instagram, Mail02 } from "../assets/iconify";
+
 export const listContent = [
   {
     title: "Recruiters Love Portfolios",
@@ -53,4 +55,14 @@ export const Faqu = [
     content:
       "We take your data security seriously. PortoIn does not collect or store sensitive personal information beyond what is required to create your portfolio. Your data is encrypted, and your portfolio is securely hosted to ensure it remains private and protected.",
   },
+];
+
+export const socialLinks = [
+  { title: "Github", ico: Github, href: "https://github.com/blackbrv" },
+  {
+    title: "Instagram",
+    ico: Instagram,
+    href: "https://www.instagram.com/thesantuyboy/",
+  },
+  { title: "Mail", ico: Mail02, href: "" },
 ];
