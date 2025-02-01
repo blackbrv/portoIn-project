@@ -59,7 +59,7 @@ const Benefits = () => {
           plugins={[
             Autoplay({
               playOnInit: true,
-              delay: 4000,
+              delay: 4500,
               stopOnInteraction: true,
             }),
           ]}

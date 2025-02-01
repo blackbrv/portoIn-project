@@ -32,7 +32,7 @@ const CheckTemplate = () => {
             plugins={[
               Autoplay({
                 playOnInit: true,
-                delay: 4000,
+                delay: 4300,
                 stopOnInteraction: true,
               }),
             ]}

@@ -29,7 +29,7 @@ const FrequentlyAskedQuestion = () => {
           plugins={[
             Autoplay({
               playOnInit: true,
-              delay: 4000,
+              delay: 5000,
               stopOnInteraction: true,
             }),
           ]}

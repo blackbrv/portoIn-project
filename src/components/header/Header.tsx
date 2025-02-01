@@ -37,7 +37,7 @@ const Header = () => {
                   src={item.src}
                   className="w-full h-full -z-50 object-cover absolute"
                 />
-                <div className="z-50 w-full h-full flex items-center justify-center text-[5rem] font-black text-center bg-[rgba(0,0,0,.5)] absolute backdrop-blur-md text-wrap tracking-widest p-32 font-[Nunito]">
+                <div className="z-50 w-full h-full flex items-center justify-center text-[5rem] font-black text-center bg-[rgba(0,0,0,.5)] absolute backdrop-blur-md text-wrap tracking-wide p-32 font-[Nunito]">
                   {item.content}
                 </div>
               </div>
