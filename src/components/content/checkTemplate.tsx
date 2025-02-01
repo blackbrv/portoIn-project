@@ -10,10 +10,8 @@ import {
 import Autoplay from "embla-carousel-autoplay";
 
 const CheckTemplate = () => {
-  const [carouselRef, setCarouselRef] = useState<HTMLDivElement | null>(null);
   const [apis, setApis] = useState<UseEmblaCarouselType[1] | undefined>();
   const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(apis);
-  console.log(carouselRef);
 
   return (
     <section
@@ -27,7 +25,6 @@ const CheckTemplate = () => {
         <div className="bg-[rgba(0,0,0,.3)] w-full h-full py-[32px]">
           <C.Carousel
             css={{ width: "100%", height: "max-content" }}
-            ref={(ref) => setCarouselRef(ref)}
             setApi={(api) => setApis(api)}
             plugins={[
               Autoplay({

@@ -6,6 +6,7 @@ import Logo from "../Logo";
 
 type NavbarProps = {
   className?: string;
+  whichActive?: string;
   exposeRef?: (ref: HTMLDivElement) => void;
 };
 
@@ -21,7 +22,7 @@ const MenuContainer = styled.div({
   fontWeight: "700",
 });
 
-const Navbar = ({ className, exposeRef }: NavbarProps) => {
+const Navbar = ({ className, whichActive, exposeRef }: NavbarProps) => {
   const [scroll, setScroll] = useState<boolean>(false);
   const rootRef = useRef<HTMLDivElement | null>(null);
 
@@ -57,9 +58,12 @@ const Navbar = ({ className, exposeRef }: NavbarProps) => {
                 <a
                   href={item.src}
                   key={index}
-                  className="hover:cursor-pointer transition-all hover:text-[#FDE12D]"
+                  className={cn(
+                    "hover:cursor-pointer transition-all hover:text-[#FDE12D]",
+                    { ["text-[#FDE12D]"]: whichActive === item.value }
+                  )}
                 >
-                  {item.value}
+                  {item.title}
                 </a>
               ) : (
                 <a
@@ -67,7 +71,7 @@ const Navbar = ({ className, exposeRef }: NavbarProps) => {
                   key={index}
                   className="w-max h-max px-2 py-1 flex items-center justify-center bg-[#dadefb] rounded-full text-[#0A1045] hover:cursor-pointer hover:bg-[#FDE12D] transition-all hover:scale-105"
                 >
-                  {item.value}
+                  {item.title}
                 </a>
               )}
             </>

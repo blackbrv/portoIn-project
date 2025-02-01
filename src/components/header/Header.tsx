@@ -32,7 +32,7 @@ const Header = () => {
         <C.CarouselContent css={carouselCont}>
           {content.map((item, index) => (
             <C.CarouselItem key={index} css={carItem}>
-              <div className="w-full h-full">
+              <div className="w-full h-full cursor-grab">
                 <img
                   src={item.src}
                   className="w-full h-full -z-50 object-cover absolute"

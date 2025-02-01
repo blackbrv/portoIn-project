@@ -5,11 +5,11 @@ type NavMenuProps = {
 };
 
 export const NavMenu: NavMenuProps[] = [
-  { title: "Home", value: "Home", src: "/" },
-  { title: "Template", value: "Template", src: "/template" },
+  { title: "Home", value: "home", src: "/" },
+  { title: "Template", value: "template", src: "/template" },
   {
     title: "Design Your Own",
-    value: "Design Your Own",
+    value: "design-your-own",
     src: "/design-your-own",
   },
 ];

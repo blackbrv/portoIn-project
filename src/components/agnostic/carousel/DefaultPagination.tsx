@@ -1,16 +1,17 @@
+import { useMemo } from "react";
 import styled from "styled-components";
 
 type DefaultPaginationProps = {
   selectedIndex: number;
   index: number;
+  inActiveColor?: string;
+  activeColor?: string;
 };
 
 const StyledDiv = styled.div({
   width: "0.75rem",
   height: "0.75rem",
-  backgroundColor: "rgba(255,255,255,.5)",
   borderWidth: "1px",
-  borderColor: "white",
   borderRadius: "999px",
   transition: "all",
   "&:hover": {
@@ -20,7 +21,18 @@ const StyledDiv = styled.div({
 });
 
 const DefaultPagination = (props: DefaultPaginationProps) => {
-  const { selectedIndex, index } = props;
+  const { selectedIndex, index, inActiveColor, activeColor } = props;
+
+  const colorSwatch = useMemo(() => {
+    let color: string | undefined = "white";
+    let inColor: string | undefined = "rgba(255,255,255,.5)";
+
+    if (inActiveColor || activeColor) {
+      color = activeColor;
+      inColor = inActiveColor;
+    }
+    return { color, inColor };
+  }, [inActiveColor, activeColor]);
 
   return (
     <StyledDiv
@@ -29,7 +41,9 @@ const DefaultPagination = (props: DefaultPaginationProps) => {
         width: selectedIndex === index ? "1rem" : "",
         height: selectedIndex === index ? "1rem" : "",
         cursor: selectedIndex === index ? "auto" : "pointer",
-        backgroundColor: selectedIndex === index ? "white" : "",
+        backgroundColor:
+          selectedIndex === index ? colorSwatch.color : colorSwatch.inColor,
+        borderColor: colorSwatch.color,
       }}
     ></StyledDiv>
   );

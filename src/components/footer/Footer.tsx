@@ -26,7 +26,9 @@ const Footer = () => {
               >
                 <item.ico
                   className={cn("w-[3rem] h-[3rem]", {
-                    ["fill-[#dadefb]"]: item.title !== "Mail",
+                    ["fill-[#dadefb] hover:fill-[#FDE12D]"]:
+                      item.title !== "Mail",
+                    ["hover:text-[#FDE12D]"]: item.title === "Mail",
                   })}
                 />
               </a>
